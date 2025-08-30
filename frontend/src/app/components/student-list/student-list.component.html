@@ -1,0 +1,143 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Students Management</h2>
+    
+    <!-- Add Student Form -->
+    <div class="card" *ngIf="!isEditing">
+      <div class="card-header">
+        <h5>Add New Student</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="addStudent()" #studentForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" 
+                       [(ngModel)]="newStudent.firstName" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" 
+                       [(ngModel)]="newStudent.lastName" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" id="email" name="email" 
+                       [(ngModel)]="newStudent.email" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text" class="form-control" id="studentId" name="studentId" 
+                       [(ngModel)]="newStudent.studentId">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!studentForm.form.valid">
+            Add Student
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Student Form -->
+    <div class="card" *ngIf="isEditing && editingStudent">
+      <div class="card-header">
+        <h5>Edit Student</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="updateStudent()" #editForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="editFirstName">First Name *</label>
+                <input type="text" class="form-control" id="editFirstName" name="editFirstName" 
+                       [(ngModel)]="editingStudent.firstName" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="editLastName">Last Name *</label>
+                <input type="text" class="form-control" id="editLastName" name="editLastName" 
+                       [(ngModel)]="editingStudent.lastName" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="editEmail">Email *</label>
+                <input type="email" class="form-control" id="editEmail" name="editEmail" 
+                       [(ngModel)]="editingStudent.email" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="editStudentId">Student ID</label>
+                <input type="text" class="form-control" id="editStudentId" name="editStudentId" 
+                       [(ngModel)]="editingStudent.studentId">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">
+            Update Student
+          </button>
+          <button type="button" class="btn btn-secondary ms-2" (click)="cancelEdit()">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Students List -->
+    <div class="card">
+      <div class="card-header">
+        <h5>Students List</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Student ID</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of students">
+                <td>{{student.id}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.studentId || 'N/A'}}</td>
+                <td>
+                  <button class="btn btn-sm btn-primary me-2" (click)="editStudent(student)">
+                    Edit
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteStudent(student.id!)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="students.length === 0">
+                <td colspan="6" class="text-center">No students found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

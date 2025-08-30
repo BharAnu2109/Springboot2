@@ -1,0 +1,13 @@
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/repository/StudentRepository.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/entity/Teacher.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/controller/CourseController.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/service/TeacherService.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/controller/TeacherController.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/SchoolManagementApplication.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/service/CourseService.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/entity/Student.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/repository/CourseRepository.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/service/StudentService.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/repository/TeacherRepository.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/controller/StudentController.java
+/home/runner/work/Springboot2/Springboot2/src/main/java/com/school/management/entity/Course.java
